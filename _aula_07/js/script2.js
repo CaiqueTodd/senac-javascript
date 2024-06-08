@@ -1,5 +1,6 @@
+let shadow = "";
 function showImage(img) {
-    const shadow = document.createElement("div");
+    shadow = document.createElement("div");
     shadow.setAttribute("class", "shadow");
     shadow.setAttribute("id", "shadow")
     const image = document.createElement("img");
@@ -9,6 +10,19 @@ function showImage(img) {
     close.setAttribute("id", "close");
     close.href="#";
     close.innerHTML="&times;"
+
+    //Aplicar as cahamadas de função para o close
+    
+    /*
+    Aplicar as chamadas de função para o shadown
+    Ao clicar no botão fechar, disparamos uma função
+    para remnover o elemento shadow da tela. isso
+    faz com que a imagem com a sombra saia da tela
+    */
+    
+    close.onclick=()=>{
+        shadow.remove()
+    }
 
     shadow.appendChild(image);
     shadow.appendChild(close);
@@ -41,7 +55,4 @@ fotos.getElementsByTagName("img")[4].onclick=()=>{
     showImage(url[url.length-1]);
 }
 
-fotos.getElementsByTagName("img")[5].onclick=()=>{
-    let url = fotos.getElementsByTagName("img")[5].src.split("/");
-    showImage(url[url.length-1]);
-}
+
